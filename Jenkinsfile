@@ -1,7 +1,7 @@
 pipeline {
     agent any
 
-    nodejs: "node"
+    tool "node"
 
     stages {
         stage('Build') {
