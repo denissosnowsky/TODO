@@ -2,8 +2,6 @@ import { shallow } from 'enzyme'
 
 import App from './App'
 
-jest.mock('bootstrap/dist/css/bootstrap.min.css');
-
 jest.mock('./components/Li/Li', () => ({ Li: () => <div>Li</div> }))
 jest.mock('./components/Switch/Switch', () => ({
   Switch: () => <div>Switch</div>,

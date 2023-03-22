@@ -1,6 +1,5 @@
 import React from 'react'
 import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { Li } from './components/Li/Li'
 import { Switch } from './components/Switch/Switch'
