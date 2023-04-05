@@ -31,10 +31,10 @@ pipeline {
             steps {
                 sh 'git config --global user.name denissosnowsky'
                 sh 'git config --global user.email denissosnowsky@gmail.com'
-                echo 'git config --global user.name'
-                echo 'git config --global user.email'
-                echo 'git config user.name'
-                echo 'git config user.email'
+                sh 'git config --global user.name'
+                sh 'git config --global user.email'
+                sh 'git config user.name'
+                sh 'git config user.email'
                 sh 'npm run deploy'
             }
         }
