@@ -32,7 +32,7 @@ pipeline {
                 sh 'git config --global user.name denissosnowsky'
                 sh 'git config --global user.email denissosnowsky@gmail.com'
                 sshagent(['github-ds-ssh']) {
-                    git remote set-url origin git@github.com:denissosnowsky/TODO.git
+                    sh 'git remote set-url origin git@github.com:denissosnowsky/TODO.git'
                     sh 'npm run deploy'
                 }
             }
