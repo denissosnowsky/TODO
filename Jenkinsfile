@@ -29,6 +29,8 @@ pipeline {
                 }
             }
             steps {
+                sh 'git config --global user.name denissosnowsky'
+                sh 'git config --global user.email denissosnowsky@gmail.com'
                 sh 'npm run deploy'
             }
         }
