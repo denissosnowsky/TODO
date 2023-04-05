@@ -4,39 +4,39 @@ import userEvent from '@testing-library/user-event';
 import { Switch } from './Switch';
 
 describe('<Switch />', () => {
-    it('should render component correctly', () => {
-        render(<Switch />);
+  it('should render component correctly', () => {
+    render(<Switch />);
 
-        expect(screen.getByText('🌞')).toBeInTheDocument();
-    });
+    expect(screen.getByText('🌞')).toBeInTheDocument();
+  });
 
-    it('should fire setColor when clicking on wrapper', () => {
-        const mockSetColor = jest.fn();
-    
-        render(<Switch setColor={mockSetColor} />);
+  it('should fire setColor when clicking on wrapper', () => {
+    const mockSetColor = jest.fn();
 
-        const wrapper = screen.getByTestId('div');
-        
-        userEvent.click(wrapper);
+    render(<Switch setColor={mockSetColor} />);
 
-        expect(mockSetColor).toHaveBeenCalled();
-    });
+    const wrapper = screen.getByTestId('div');
 
-    it('should toggle icons by clicking on wrapper', () => {
-        const mockSetColor = jest.fn();
+    userEvent.click(wrapper);
 
-        render(<Switch setColor={mockSetColor} />);
+    expect(mockSetColor).toHaveBeenCalled();
+  });
 
-        const wrapper = screen.getByTestId('div');
+  it('should toggle icons by clicking on wrapper', () => {
+    const mockSetColor = jest.fn();
 
-        expect(screen.getByText('🌞')).toBeInTheDocument();
+    render(<Switch setColor={mockSetColor} />);
 
-        userEvent.click(wrapper);
+    const wrapper = screen.getByTestId('div');
 
-        expect(screen.getByText('🌒')).toBeInTheDocument();
+    expect(screen.getByText('🌞')).toBeInTheDocument();
 
-        userEvent.click(wrapper);
+    userEvent.click(wrapper);
 
-        expect(screen.getByText('🌞')).toBeInTheDocument();
-    });
-})
+    expect(screen.getByText('🌒')).toBeInTheDocument();
+
+    userEvent.click(wrapper);
+
+    expect(screen.getByText('🌞')).toBeInTheDocument();
+  });
+});
