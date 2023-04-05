@@ -1,50 +1,50 @@
-import { shallow } from 'enzyme'
+import { shallow } from 'enzyme';
 
-import { Li } from './Li'
+import { Li } from './Li';
 
 describe('<Li />', () => {
-    it('should render component correctly', () => {
-        const wrapper = shallow(<Li children={'CHILDREN'} done />)
-          
-        expect(wrapper.find('.note-done').props().children).toBe('CHILDREN');
-        expect(wrapper.find('.delete').props().children).toBe('\u274C');
+  it('should render component correctly', () => {
+    const wrapper = shallow(<Li children={'CHILDREN'} done />);
 
-        wrapper.setProps({ children: 'NEW_CHILDREN' });
+    expect(wrapper.find('.note-done').props().children).toBe('CHILDREN');
+    expect(wrapper.find('.delete').props().children).toBe('\u274C');
 
-        expect(wrapper.find('.note-done').props().children).toBe('NEW_CHILDREN');
-    })
+    wrapper.setProps({ children: 'NEW_CHILDREN' });
 
-    it('should render crossed text for done items and not crossed for undone items', () => {
-        const wrapper = shallow(<Li done />)
+    expect(wrapper.find('.note-done').props().children).toBe('NEW_CHILDREN');
+  });
 
-        expect(wrapper.instance().props.done).toBeTruthy();
+  it('should render crossed text for done items and not crossed for undone items', () => {
+    const wrapper = shallow(<Li done />);
 
-        wrapper.setProps({ done: false });
+    expect(wrapper.instance().props.done).toBeTruthy();
 
-        expect(wrapper.instance().props.done).toBeFalsy();
-    });
+    wrapper.setProps({ done: false });
 
-    it('should fire changeItem when clicking on checkbox', () => {
-        const mockChangeItem = jest.fn();
+    expect(wrapper.instance().props.done).toBeFalsy();
+  });
 
-        const wrapper = shallow(<Li done changeItem={mockChangeItem}/>)
+  it('should fire changeItem when clicking on checkbox', () => {
+    const mockChangeItem = jest.fn();
 
-        const checkbox = wrapper.find('.checkbox');
+    const wrapper = shallow(<Li done changeItem={mockChangeItem} />);
 
-        checkbox.props().onClick();
+    const checkbox = wrapper.find('.checkbox');
 
-        expect(mockChangeItem).toHaveBeenCalled();
-    });
+    checkbox.props().onClick();
 
-    it('should fire deleteItem when clicking on delete icon', () => {
-        const mockDeleteItem = jest.fn();
+    expect(mockChangeItem).toHaveBeenCalled();
+  });
 
-        const wrapper = shallow(<Li done deleteItem={mockDeleteItem}/>)
+  it('should fire deleteItem when clicking on delete icon', () => {
+    const mockDeleteItem = jest.fn();
 
-        const deleteIcon = wrapper.find('.delete');
+    const wrapper = shallow(<Li done deleteItem={mockDeleteItem} />);
 
-        deleteIcon.props().onClick();
+    const deleteIcon = wrapper.find('.delete');
 
-        expect(mockDeleteItem).toHaveBeenCalled();
-    });
-})
+    deleteIcon.props().onClick();
+
+    expect(mockDeleteItem).toHaveBeenCalled();
+  });
+});

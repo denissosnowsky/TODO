@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 export class Header extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {};
   }
 
@@ -10,8 +10,10 @@ export class Header extends React.Component {
     return (
       <div className="header">
         <span className="logo">TODO LIST</span>
-        <span className="plus" onClick={() => this.props.setIsModalOpen(true)}>&#10133;</span>
+        <span className="plus" onClick={() => this.props.setIsModalOpen(true)}>
+          &#10133;
+        </span>
       </div>
-    )
+    );
   }
 }

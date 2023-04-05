@@ -1,26 +1,26 @@
-import React from 'react'
+import React from 'react';
 
 export class Switch extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-        isNight: false,
-    }
+      isNight: false
+    };
     this.toggle = this.toggle.bind(this);
   }
 
   toggle() {
     this.setState((state) => ({
-      isNight: !state.isNight,
-    }))
+      isNight: !state.isNight
+    }));
     this.props.setColor();
   }
 
   render() {
     return (
-      <div className="switch" onClick={this.toggle} data-testid='div'>
+      <div className="switch" onClick={this.toggle} data-testid="div">
         {this.state.isNight ? <span>&#127762;</span> : <span>&#127774;</span>}
       </div>
-    )
+    );
   }
 }

@@ -4,22 +4,22 @@ import userEvent from '@testing-library/user-event';
 import { Header } from './Header';
 
 describe('<Header />', () => {
-    it('should render component correctly', () => {
-        render(<Header setIsModalOpen={jest.fn} />);
+  it('should render component correctly', () => {
+    render(<Header setIsModalOpen={jest.fn} />);
 
-        expect(screen.getByText('TODO LIST')).toBeInTheDocument();
-        expect(screen.getByText('\u2795')).toBeInTheDocument();
-    });
+    expect(screen.getByText('TODO LIST')).toBeInTheDocument();
+    expect(screen.getByText('\u2795')).toBeInTheDocument();
+  });
 
-    it('should fire setIsModalOpen handler with true', () => {
-        const mockSetIsModalOpen = jest.fn();
+  it('should fire setIsModalOpen handler with true', () => {
+    const mockSetIsModalOpen = jest.fn();
 
-        render(<Header setIsModalOpen={mockSetIsModalOpen} />);
-        
-        const button = screen.getByText('\u2795');
-        
-        userEvent.click(button);
+    render(<Header setIsModalOpen={mockSetIsModalOpen} />);
 
-        expect(mockSetIsModalOpen).toHaveBeenCalledWith(true);
-    });
+    const button = screen.getByText('\u2795');
+
+    userEvent.click(button);
+
+    expect(mockSetIsModalOpen).toHaveBeenCalledWith(true);
+  });
 });
