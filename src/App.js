@@ -85,7 +85,7 @@ class App extends React.Component {
       <div
         className={this.state.color === 'light' ? 'App-light' : 'App-dark'}
         data-testid="wrapper">
-        <Switch setColor={this.setColor} />x
+        <Switch setColor={this.setColor} />
         <Header setIsModalOpen={this.setIsModalOpen} />
         <div
           className={this.state.color === 'light' ? 'wrapper-light' : 'wrapper-dark'}
