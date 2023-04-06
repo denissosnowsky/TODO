@@ -22,6 +22,9 @@ pipeline {
         }
 
         stage('Deploy') {
+            environment {
+                ACCESS_TOKEN = credentials('github-PAT')
+            }
             when {
                 branch 'master'
                 not {
@@ -31,10 +34,8 @@ pipeline {
             steps {
                 sh 'git config --global user.name denissosnowsky'
                 sh 'git config --global user.email denissosnowsky@gmail.com'
-                sshagent(['github-ds-ssh']) {
-                    sh 'git remote set-url origin git@github.com:denissosnowsky/TODO.git'
-                    sh 'npm run deploy'
-                }
+                sh 'git remote set-url origin https://denissosnowsky:$ACCESS_TOKEN@github.com/denissosnowsky/TODO'
+                sh 'npm run deploy'
             }
         }
     }
