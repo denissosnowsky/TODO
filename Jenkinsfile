@@ -2,6 +2,9 @@ pipeline {
     agent {
         docker { image 'node:latest' }
     }
+    script {
+        publishChecks detailsURL: '${RUN_DISPLAY_URL}', name: 'todo', status: 'NONE', title: 'todo'
+    }
     stages {
         stage('Build') {
             steps {
