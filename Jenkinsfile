@@ -36,6 +36,7 @@ pipeline {
                 sh 'git config --global user.email denissosnowsky@gmail.com'
                 sh 'git remote set-url origin https://denissosnowsky:$ACCESS_TOKEN@github.com/denissosnowsky/TODO'
                 sh 'npm run deploy'
+                sh 'cd /var/jenkins_home/workspace; rm -rf TODO*'
             }
         }
     }
