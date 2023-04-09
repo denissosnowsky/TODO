@@ -5,9 +5,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                script {
-                    publishChecks detailsURL: '${RUN_DISPLAY_URL}', name: 'todo', status: 'NONE', title: 'todo'
-                }
                 sh 'npm install'
             }
         }
