@@ -11,7 +11,7 @@ pipeline {
 
         stage('ESlint') {
             steps {
-                sh 'npx eslint --ext .jsx,.js lib/'
+                sh 'npx eslint --ext .jsx,.js src/'
             }
         }
 
