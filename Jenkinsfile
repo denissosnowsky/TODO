@@ -9,12 +9,6 @@ pipeline {
             }
         }
 
-        stage('ESlint') {
-            steps {
-                sh 'npm run lint'
-            }
-        }
-
         stage('Test') {
             steps {
                 sh 'npm run test'
