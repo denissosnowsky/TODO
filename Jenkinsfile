@@ -11,7 +11,7 @@ pipeline {
 
         stage('ESlint') {
             steps {
-                sh 'npm run lint'
+                sh 'npx eslint --ext .jsx,.js lib/'
             }
         }
 
